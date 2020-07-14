@@ -1,0 +1,28 @@
+<div>
+    <label for="file" mat-raised-button color="primary">Choose a photo</label>
+    <input type="file"
+           id="file"
+           multiple
+           (change)="onFilesUploaded($event.target.files)">
+</div>
+
+
+<app-list-posts></app-list-posts>
+
+<div>
+    <mat-card> 
+        <mat-card-actions>  
+            <button mat-mini-fab color="accent">
+                <mat-icon>map</mat-icon>
+            </button>
+            <button class="photo-button" mat-fab color="warn" (change)="onFilesUploaded($event.target.files)">  
+                <mat-icon>photo</mat-icon>
+            </button> 
+            <button mat-mini-fab color="accent">
+                <mat-icon>list</mat-icon>
+            </button>
+        </mat-card-actions>  
+    </mat-card>
+
+    <input type="file" #fileInput id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*" style="display:none;" />
+</div>

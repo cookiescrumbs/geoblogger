@@ -1,4 +1,4 @@
-# Geoblogger
+# Geoblogger 🏔️⚡🐟🗺️🦌⛈️⛺🥃🥾🏞️🗒️🖊️
 
 A location based microblogging app
 

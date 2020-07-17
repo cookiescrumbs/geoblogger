@@ -1,7 +1,14 @@
 <div class="flex-container mat-primary">
     <mat-card *ngFor="let post of posts">
-        <mat-card-title>
-        </mat-card-title>
-        <img mat-card-image [src]="post.imageSrc">
+    <app-live-photo
+        *ngIf="isLivePhoto(post)"
+        photo="{{post.media.imageSrc}}"
+        video="{{post.media.videoSrc}}"
+    ></app-live-photo>
+    <img *ngIf="isImage(post)" mat-card-image src="{{post.media.imageSrc}}">
+    <video *ngIf="isVideo(post)" controls width="100%" >
+        <source src="{{post.media.videoSrc}}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     </mat-card>
 </div>

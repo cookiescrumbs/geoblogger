@@ -3,9 +3,16 @@ export interface LatLng {
     lng: number;
 }
 
+
+interface Media {
+    type: 'video' | 'live-photo' | 'image';
+    videoSrc?: string;
+    imageSrc?: string;
+}
+
 export interface Post {
     location: LatLng;
-    imageSrc: string;
+    media: Media;
     dateTime: string;
     timeStamp: number;
     content: string;

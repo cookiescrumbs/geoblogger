@@ -7,22 +7,23 @@ import { AppComponent } from './app.component';
 import { FishingPhotoComponent } from './fishing-photo/fishing-photo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ListPostsComponent } from './list-posts/list-posts.component';
+import { LivePhotoComponent } from './live-photo/live-photo.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FishingPhotoComponent,
-    ListPostsComponent
+    ListPostsComponent,
+    LivePhotoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GoogleMapsModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FlexLayoutModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

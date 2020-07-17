@@ -79,7 +79,10 @@ export class FishingPhotoComponent implements OnInit {
     private get _post(): Post {
         return {
             location: this.location,
-            imageSrc: this.imageSrc,
+            media: {
+                type: 'image',
+                imageSrc: this.imageSrc
+            },
             dateTime: this.dateTime,
             timeStamp: this.timeStamp,
             content: this.content

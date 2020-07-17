@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-// import { Post } from '../types';
+import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { Post } from '../types';
 import { POSTS } from '../mock-posts';
 
 @Component({
@@ -7,14 +7,23 @@ import { POSTS } from '../mock-posts';
     templateUrl: './list-posts.component.html',
     styleUrls: ['./list-posts.component.scss']
 })
-export class ListPostsComponent implements OnInit {
-
+export class ListPostsComponent {
     // @Input() posts: Array<Post>;
     public posts = POSTS;
 
     constructor() {}
 
-    ngOnInit(): void {
+    public isVideo(post: Post): boolean {
+        return post.media.type === 'video' ? true : false;
     }
+
+    public isImage(post: Post): boolean {
+        return post.media.type === 'image' ? true : false;
+    }
+
+    public isLivePhoto(post: Post): boolean {
+        return post.media.type === 'live-photo' ? true : false;
+    }
+
 
 }

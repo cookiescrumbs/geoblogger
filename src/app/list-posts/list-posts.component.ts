@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from '../types';
 import { POSTS } from '../mock-posts';
 
@@ -7,7 +7,7 @@ import { POSTS } from '../mock-posts';
     templateUrl: './list-posts.component.html',
     styleUrls: ['./list-posts.component.scss']
 })
-export class ListPostsComponent {
+export class ListPostsComponent  {
     // @Input() posts: Array<Post>;
     public posts = POSTS;
 
@@ -24,6 +24,5 @@ export class ListPostsComponent {
     public isLivePhoto(post: Post): boolean {
         return post.media.type === 'live-photo' ? true : false;
     }
-
 
 }

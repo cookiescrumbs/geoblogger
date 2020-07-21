@@ -12,8 +12,10 @@ export class LivePhotoComponent implements OnInit {
     @Input() photo: string;
 
     public livePlayer: any;
+    public id: string;
 
     constructor() {
+        this.id = this._generateId();
     }
 
     ngOnInit(): void {
@@ -22,12 +24,17 @@ export class LivePhotoComponent implements OnInit {
 
     private _createPlayer() {
         document.addEventListener('DOMContentLoaded', (event) => {
+
             const player = LivePhotosKit.augmentElementAsPlayer(
-                document.getElementById('live-photo-player')
+                document.getElementById(this.id)
             );
             player.photoSrc = this.photo;
             player.videoSrc = this.video;
         });
+    }
+
+    private _generateId(): string {
+        return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
     }
 
 }

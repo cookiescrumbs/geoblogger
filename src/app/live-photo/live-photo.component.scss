@@ -1,4 +1,11 @@
-div { 
-    width: 645px;
-    height: 645px;
+div {
+    width: 400px; 
+    height: 300px;
+}
+
+@media (min-width: 600px) {
+    div {
+        width: 645px; 
+        height: 484px
+    }
 }

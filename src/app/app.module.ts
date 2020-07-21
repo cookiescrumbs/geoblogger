@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ListPostsComponent } from './list-posts/list-posts.component';
 import { LivePhotoComponent } from './live-photo/live-photo.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LivePhotoComponent } from './live-photo/live-photo.component';
     AppComponent,
     FishingPhotoComponent,
     ListPostsComponent,
-    LivePhotoComponent
+    LivePhotoComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

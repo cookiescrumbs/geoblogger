@@ -1,10 +1,24 @@
+img {
+    width: 400px;
+}
+
+@media (min-width: 600px) {
+    img {
+        width: 645px; 
+    }
+}
+
 .flex-container {
     display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .flex-container > mat-card {
-    width: 645px;
-    margin: 10px;
-  }
+    flex-direction: column;
+}
 
+.flex-container > div {
+    margin: 10px;
+}
+
+.map-container { 
+    position: fixed;
+    right: 10px;
+    top: 5px;
+}

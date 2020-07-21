@@ -1,35 +1,29 @@
-import { Component, ViewChild, Input, OnChanges } from '@angular/core';
-import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { LatLng } from '../types';
+import { Post, LatLng } from '../types';
+
 
 @Component({
     selector: 'app-map',
     templateUrl: './map.component.html',
     styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnChanges {
-    @ViewChild(MapInfoWindow, { static: false }) infoWindow: MapInfoWindow;
+export class MapComponent implements OnInit {
 
-    @Input() center: LatLng;
-    @Input() content: string;
+    @Input() posts: Array<Post>;
 
+    center: google.maps.LatLngLiteral;
     markerOptions = { draggable: false };
-    markerPositions: google.maps.LatLngLiteral[] = [];
     zoom = 13;
     display?: google.maps.LatLngLiteral;
-    infoWindowContent: string;
 
-    ngOnChanges() {
-        this.addMarker();
+    ngOnInit() {
+        this.center = this._medianPostLocation();
     }
 
-    addMarker(): void {
-        this.markerPositions.push(this.center);
+    private _medianPostLocation(): LatLng {
+        const median: number = Math.round((this.posts.length / 2));
+        return this.posts[median].location;
     }
 
-    openInfoWindow(marker: MapMarker, content: string) {
-        this.infoWindowContent = content;
-        this.infoWindow.open(marker);
-    }
 }

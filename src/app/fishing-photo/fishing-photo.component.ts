@@ -20,8 +20,7 @@ export class FishingPhotoComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     onFilesUploaded(files: FileList) {
         for (let i = 0; i < files.length; i++) {

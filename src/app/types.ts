@@ -11,6 +11,7 @@ interface Media {
 }
 
 export interface Post {
+    id: number;
     location: LatLng;
     media: Media;
     dateTime: string;

@@ -1,19 +1,11 @@
 <div class="flex-container">
     <div *ngFor="let post of posts">
-        <app-live-photo 
+        <app-live-photo
+            (inView)="postService.setCurrentPost($event, post)"
             *ngIf="isLivePhoto(post)"
             photo="{{post.media.imageSrc}}"
             video="{{post.media.videoSrc}}"
         ></app-live-photo>
-        <img *ngIf="isImage(post)" src="{{post.media.imageSrc}}">
-        <video *ngIf="isVideo(post)" controls width="100%" >
-            <source src="{{post.media.videoSrc}}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
     </div>
 </div>
-<div class="map-container">
-    <app-map
-        [posts]="posts"
-    ></app-map>
-</div>
+

@@ -1,4 +1,15 @@
 img {
-    
-    font-size: 0px;
-} 
+  font-size: 0px;
+}
+
+.map-container {
+  position: fixed;
+  right: 10px;
+  top: 5px;
+}
+
+.content {
+    position: fixed;
+    right: 10px;
+    top: 550px;
+  }

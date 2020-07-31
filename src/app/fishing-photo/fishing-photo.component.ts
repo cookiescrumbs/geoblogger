@@ -77,6 +77,7 @@ export class FishingPhotoComponent implements OnInit {
 
     private get _post(): Post {
         return {
+            id: 1,
             location: this.location,
             media: {
                 type: 'image',

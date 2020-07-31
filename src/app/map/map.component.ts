@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { Post, LatLng } from '../types';
 
@@ -8,17 +8,28 @@ import { Post, LatLng } from '../types';
     templateUrl: './map.component.html',
     styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnChanges {
 
     @Input() posts: Array<Post>;
+    @Input() currentPost: Post;
 
-    center: google.maps.LatLngLiteral;
-    markerOptions = { draggable: false };
-    zoom = 13;
-    display?: google.maps.LatLngLiteral;
+    public center: google.maps.LatLngLiteral;
+    public markerOptions = {
+        draggable: false
+    };
+    public zoom = 13;
 
-    ngOnInit() {
-        this.center = this._medianPostLocation();
+    public ngOnChanges() {
+        this.center = this._setCentreToCurrentPost();
+    }
+
+    public ngOnInit() {
+        this.center = this._setCentreToCurrentPost();
+        this.zoom = 15;
+    }
+
+    private _setCentreToCurrentPost(): LatLng {
+        return this.currentPost.location;
     }
 
     private _medianPostLocation(): LatLng {

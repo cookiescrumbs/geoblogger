@@ -1,1 +1,12 @@
-<app-list-posts></app-list-posts>
+<div>
+    <app-list-posts
+        [posts]="posts"
+    ></app-list-posts>
+    <div class="map-container">
+    <app-map
+        [posts]="posts"
+        [currentPost]="postService.getCurrentPost()"
+    ></app-map>
+    </div>
+    <div class="content">{{postService.getCurrentPost().content}}</div>
+</div>

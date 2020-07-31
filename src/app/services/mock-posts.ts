@@ -1,7 +1,8 @@
-import { Post } from './types';
+import { Post } from '../types';
 
 export const POSTS: Post[] = [
     {
+        id: 1,
         location: {
             lat: 53.961697,
             lng: -2.761886
@@ -16,21 +17,22 @@ export const POSTS: Post[] = [
         timeStamp: 1559569798,
         content: 'Sybil needed a pee'
     },
+    // {
+    //     location: {
+    //         lat: 54.508808,
+    //         lng: -2.912085
+    //     },
+    //     media:
+    //     {
+    //         type: 'image',
+    //         imageSrc: 'assets/mocks/photos/2.jpeg'
+    //     },
+    //     dateTime: '2019-06-03T13:49:58.000Z',
+    //     timeStamp: 1559569798,
+    //     content: 'Off we go..'
+    // },
     {
-        location: {
-            lat: 54.508808,
-            lng: -2.912085
-        },
-        media:
-        {
-            type: 'image',
-            imageSrc: 'assets/mocks/photos/2.jpeg'
-        },
-        dateTime: '2019-06-03T13:49:58.000Z',
-        timeStamp: 1559569798,
-        content: 'Off we go..'
-    },
-    {
+        id: 2,
         location: {
             lat:  54.508890,
             lng: -2.892662
@@ -45,21 +47,22 @@ export const POSTS: Post[] = [
         timeStamp: 1559583344,
         content: 'Looking back at blah blah'
     },
+    // {
+    //     location: {
+    //         lat: 54.509015,
+    //         lng: -2.892370
+    //     },
+    //     media:
+    //     {
+    //         type: 'image',
+    //         imageSrc: 'assets/mocks/photos/4.jpeg'
+    //     },
+    //     dateTime: '2019-06-03T17:35:44.000Z',
+    //     timeStamp: 1559583344,
+    //     content: 'It\'s just up there'
+    // },
     {
-        location: {
-            lat: 54.509015,
-            lng: -2.892370
-        },
-        media:
-        {
-            type: 'image',
-            imageSrc: 'assets/mocks/photos/4.jpeg'
-        },
-        dateTime: '2019-06-03T17:35:44.000Z',
-        timeStamp: 1559583344,
-        content: 'It\'s just up there'
-    },
-    {
+        id: 3,
         location: {
             lat: 54.510439,
             lng: -2.890308
@@ -75,6 +78,7 @@ export const POSTS: Post[] = [
         content: 'Up Prisoner crag'
     },
     {
+        id: 4,
         location: {
             lat: 54.511348,
             lng: -2.888967
@@ -90,6 +94,7 @@ export const POSTS: Post[] = [
         content: 'Why is it called Prisoner Crag?'
     },
     {
+        id: 5,
         location: {
             lat: 54.519418,
             lng: -2.901721
@@ -102,23 +107,24 @@ export const POSTS: Post[] = [
         },
         dateTime: '2019-06-03T17:35:44.000Z',
         timeStamp: 1559583344,
-        content: 'Why is it called Prisoner Crag?'
+        content: 'Sybil in my jacket'
     },
+    // {
+    //     location: {
+    //         lat: 54.519490,
+    //         lng: -2.901680
+    //     },
+    //     media:
+    //     {
+    //         type: 'image',
+    //         imageSrc: 'assets/mocks/photos/8.jpeg'
+    //     },
+    //     dateTime: '2019-06-03T17:35:44.000Z',
+    //     timeStamp: 1559583344,
+    //     content: 'Why is it called Prisoner Crag?'
+    // },
     {
-        location: {
-            lat: 54.519490,
-            lng: -2.901680
-        },
-        media:
-        {
-            type: 'image',
-            imageSrc: 'assets/mocks/photos/8.jpeg'
-        },
-        dateTime: '2019-06-03T17:35:44.000Z',
-        timeStamp: 1559583344,
-        content: 'Why is it called Prisoner Crag?'
-    },
-    {
+        id: 6,
         location: {
             lat: 54.519501,
             lng: -2.901396
@@ -131,9 +137,10 @@ export const POSTS: Post[] = [
         },
         dateTime: '2019-06-03T17:35:44.000Z',
         timeStamp: 1559583344,
-        content: 'Why is it called Prisoner Crag?'
+        content: 'Dan caught a perch'
     },
     {
+        id: 7,
         location: {
             lat: 54.519522,
             lng: -2.901713
@@ -146,6 +153,6 @@ export const POSTS: Post[] = [
         },
         dateTime: '2019-06-03T17:35:44.000Z',
         timeStamp: 1559583344,
-        content: 'Why is it called Prisoner Crag?'
+        content: 'Sybil peeping out of the tent'
     }
 ];

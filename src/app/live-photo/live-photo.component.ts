@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import * as LivePhotosKit from 'livephotoskit';
 
 @Component({
@@ -6,7 +6,7 @@ import * as LivePhotosKit from 'livephotoskit';
     templateUrl: './live-photo.component.html',
     styleUrls: ['./live-photo.component.scss']
 })
-export class LivePhotoComponent implements OnInit {
+export class LivePhotoComponent implements AfterViewInit {
     @Input() video: string;
     @Input() photo: string;
 
@@ -16,13 +16,15 @@ export class LivePhotoComponent implements OnInit {
     public livePlayer: any;
     public id: string;
 
+    private _player: any;
+
     constructor(
         private el: ElementRef
     ) {
         this.id = this._generateId();
     }
 
-    ngOnInit(): void {
+    ngAfterViewInit() {
         this._createPlayer();
         this.onWindowScroll();
     }
@@ -32,24 +34,22 @@ export class LivePhotoComponent implements OnInit {
     onWindowScroll(): void {
         const position = this.el.nativeElement.getBoundingClientRect();
         // detecting if element is fully visible ... is this post the current post?
-        if (position.top > 0 && position.bottom < window.innerHeight) {
-            // console.log(`id: ${this.id}...top: ${position.top}...bottom: ${position.bottom}... innerHeight: ${window.innerHeight}`);
+        if (position.top >= 0 && position.bottom <= window.innerHeight) {
             this.inView.emit(true);
         }
     }
 
     private _createPlayer() {
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const player = LivePhotosKit.augmentElementAsPlayer(
-                document.getElementById(this.id)
-            );
-            player.photoSrc = this.photo;
-            player.videoSrc = this.video;
-        });
+        this._player = LivePhotosKit.augmentElementAsPlayer(
+            document.getElementById(this.id)
+        );
+        this._player.photoSrc = this.photo;
+        this._player.videoSrc = this.video;
     }
 
     private _generateId(): string {
         return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
     }
+
 
 }

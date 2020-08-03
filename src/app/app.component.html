@@ -3,10 +3,11 @@
         [posts]="posts"
     ></app-list-posts>
     <div class="map-container">
-    <app-map
-        [posts]="posts"
-        [currentPost]="postService.getCurrentPost()"
-    ></app-map>
+        <app-map
+            *ngIf="currentPostReady"
+            [posts]="posts"
+            [currentPost]="getCurrentPost()"
+        ></app-map>
     </div>
-    <div class="content">{{postService.getCurrentPost().content}}</div>
+    <div  *ngIf="currentPostReady" class="content" >{{postService.getCurrentPost().content}}</div>
 </div>

@@ -11,11 +11,12 @@ import { Post } from './types';
 export class AppComponent implements OnInit {
 
     public posts: Array<Post>;
+    public currentPost: Post;
+    public currentPostReady = false;
 
 
     public ngOnInit() {
        this.getPosts();
-       this.setCurrentPost();
     }
 
     constructor(public postService: PostService) { }
@@ -24,6 +25,8 @@ export class AppComponent implements OnInit {
         this.postService.getPosts()
         .subscribe(posts => {
             this.posts = posts;
+            this.setCurrentPost();
+            this.currentPostReady = true;
         });
     }
 
@@ -32,6 +35,10 @@ export class AppComponent implements OnInit {
             true,
             this.posts[0]
         );
+    }
+
+    getCurrentPost(): Post {
+        return this.postService.getCurrentPost();
     }
 
 }

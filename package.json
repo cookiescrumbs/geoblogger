@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "@types/googlemaps": "^3.39.9",
+    "angular-in-memory-web-api": "^0.11.0",
     "exifr": "^5.0.2",
     "livephotoskit": "^1.5.6",
     "rxjs": "~6.5.4",

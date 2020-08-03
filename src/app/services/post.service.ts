@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { POSTS } from './mock-posts';
 import { Post } from '../types';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,11 +12,12 @@ export class PostService {
 
     private _currentPost: Post;
     private _currentPostId: number;
+    private postsUrl = 'api/posts';  // URL to web api
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     public getPosts(): Observable<Post[]> {
-        return of(POSTS);
+        return this.http.get<Post[]>(this.postsUrl);
     }
 
     public setCurrentPost(inView: boolean, post: Post): void{

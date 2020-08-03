@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { POSTS } from './mock-posts';
 import { Post } from '../types';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

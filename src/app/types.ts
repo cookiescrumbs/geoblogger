@@ -18,4 +18,5 @@ export interface Post {
     timeStamp: number;
     content: string;
     icon?: string;
+    position?: number;
 }

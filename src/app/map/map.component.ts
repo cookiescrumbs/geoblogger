@@ -26,7 +26,6 @@ export class MapComponent implements OnInit, OnChanges {
 
     public ngOnChanges() {
         this.center = this._setCentreToCurrentPost();
-        this.zoom = 25;
     }
 
     public ngOnInit() {

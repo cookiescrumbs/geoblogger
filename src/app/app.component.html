@@ -10,6 +10,7 @@
         ></app-map>
     </div>
     <div  *ngIf="currentPostReady" class="content" >
+        <h3>{{getCurrentPost().position}}</h3>
         {{getCurrentPost().content}}
     </div>
 </div>

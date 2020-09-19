@@ -11,9 +11,5 @@ import { Post } from '../types';
 export class ListPostsComponent {
     @Input() posts: Array<Post>;
 
-    constructor(public postService: PostService ) {
-
-        postService.blah();
-
-    }
+    constructor(public postService: PostService ) { }
 }

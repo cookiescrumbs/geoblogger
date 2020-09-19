@@ -17,7 +17,10 @@ export class PostService {
     constructor(private http: HttpClient) { }
 
     public getPosts(): Observable<Post[]> {
-        return this.http.get<Post[]>(this.postsUrl);
+        return this.http.get<Post[]>(this.postsUrl)
+        .pipe(
+            map(posts => this._addPosition(posts) )
+        );
     }
 
     public setCurrentPost(inView: boolean, post: Post): void{
@@ -31,11 +34,12 @@ export class PostService {
         return this._currentPost;
     }
 
-    public blah(): void {
-        this.http.get<Post[]>(this.postsUrl)
-        .pipe(
-            map(posts => posts)
-        )
-        .subscribe(posts => console.log(posts));
+    private _addPosition(posts: Post[]): Post[] {
+        return posts.map((post: Post , index: number) => {
+            return {
+                ...post,
+                position: ++index
+            };
+        });
     }
 }

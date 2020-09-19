@@ -4,7 +4,7 @@ export interface LatLng {
 }
 
 
-interface Media {
+export interface Media {
     type: 'video' | 'live-photo' | 'image';
     videoSrc?: string;
     imageSrc?: string;
@@ -17,4 +17,5 @@ export interface Post {
     dateTime: string;
     timeStamp: number;
     content: string;
+    icon?: string;
 }

@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FishingPhotoComponent } from './fishing-photo/fishing-photo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ListPostsComponent } from './list-posts/list-posts.component';
@@ -15,11 +14,9 @@ import { MapComponent } from './map/map.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    FishingPhotoComponent,
     ListPostsComponent,
     LivePhotoComponent,
     MapComponent

@@ -2,10 +2,12 @@
     <div *ngFor="let post of posts">
         <app-live-photo
             (inView)="postService.setCurrentPost($event, post)"
-            *ngIf="isLivePhoto(post)"
-            photo="{{post.media.imageSrc}}"
-            video="{{post.media.videoSrc}}"
+            [media]=post.media
         ></app-live-photo>
+        <div class="map-place-holder">
+        </div>
+        <div class="content-place-holder">
+        </div>
     </div>
 </div>
 

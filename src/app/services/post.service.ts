@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../types';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
@@ -28,5 +29,13 @@ export class PostService {
 
     public getCurrentPost(): Post {
         return this._currentPost;
+    }
+
+    public blah(): void {
+        this.http.get<Post[]>(this.postsUrl)
+        .pipe(
+            map(posts => posts)
+        )
+        .subscribe(posts => console.log(posts));
     }
 }

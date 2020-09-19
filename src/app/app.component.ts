@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { PostService } from './services/post.service';
 
 import { Post } from './types';
@@ -10,34 +12,30 @@ import { Post } from './types';
 })
 export class AppComponent implements OnInit {
 
-    public posts: Array<Post>;
+    public posts: Observable<Post[]>;
     public currentPost: Post;
     public currentPostReady = false;
 
-
     public ngOnInit() {
-       this.getPosts();
+        this._getPosts();
     }
 
     constructor(public postService: PostService) { }
 
-    getPosts(): void {
-        this.postService.getPosts()
-        .subscribe(posts => {
-            this.posts = posts;
-            this.setCurrentPost();
-            this.currentPostReady = true;
-        });
-    }
-
-    setCurrentPost(): void {
-        this.postService.setCurrentPost(
-            true,
-            this.posts[0]
+    private _getPosts(): void {
+        this.posts = this.postService.getPosts()
+        .pipe(
+            tap(() => this.currentPostReady = true),
+            tap((posts) => {
+                this.postService.setCurrentPost(
+                    true,
+                    posts[0]
+                );
+            })
         );
     }
 
-    getCurrentPost(): Post {
+    public getCurrentPost(): Post {
         return this.postService.getCurrentPost();
     }
 

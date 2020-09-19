@@ -10,27 +10,12 @@ export const POSTS: Post[] = [
         media:
         {
             type: 'live-photo',
-            videoSrc: 'assets/mocks/videos/1.mov',
             imageSrc: 'assets/mocks/photos/1.jpeg'
          },
         dateTime: '2019-06-03T13:49:58.000Z',
         timeStamp: 1559569798,
         content: 'Sybil needed a pee'
     },
-    // {
-    //     location: {
-    //         lat: 54.508808,
-    //         lng: -2.912085
-    //     },
-    //     media:
-    //     {
-    //         type: 'image',
-    //         imageSrc: 'assets/mocks/photos/2.jpeg'
-    //     },
-    //     dateTime: '2019-06-03T13:49:58.000Z',
-    //     timeStamp: 1559569798,
-    //     content: 'Off we go..'
-    // },
     {
         id: 2,
         location: {
@@ -47,20 +32,6 @@ export const POSTS: Post[] = [
         timeStamp: 1559583344,
         content: 'Looking back at blah blah'
     },
-    // {
-    //     location: {
-    //         lat: 54.509015,
-    //         lng: -2.892370
-    //     },
-    //     media:
-    //     {
-    //         type: 'image',
-    //         imageSrc: 'assets/mocks/photos/4.jpeg'
-    //     },
-    //     dateTime: '2019-06-03T17:35:44.000Z',
-    //     timeStamp: 1559583344,
-    //     content: 'It\'s just up there'
-    // },
     {
         id: 3,
         location: {
@@ -109,20 +80,6 @@ export const POSTS: Post[] = [
         timeStamp: 1559583344,
         content: 'Sybil in my jacket'
     },
-    // {
-    //     location: {
-    //         lat: 54.519490,
-    //         lng: -2.901680
-    //     },
-    //     media:
-    //     {
-    //         type: 'image',
-    //         imageSrc: 'assets/mocks/photos/8.jpeg'
-    //     },
-    //     dateTime: '2019-06-03T17:35:44.000Z',
-    //     timeStamp: 1559583344,
-    //     content: 'Why is it called Prisoner Crag?'
-    // },
     {
         id: 6,
         location: {

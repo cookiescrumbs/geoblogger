@@ -1,13 +1,3 @@
-img {
-    width: 400px;
-}
-
-@media (min-width: 600px) {
-    img {
-        width: 645px;
-    }
-}
-
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -16,3 +6,14 @@ img {
 .flex-container > div {
     margin: 10px;
 }
+
+div.map-place-holder {
+    height: 484px;
+    z-index: -10;
+
+}
+
+div.content-palce-holder {
+    height: 484px;
+}
+

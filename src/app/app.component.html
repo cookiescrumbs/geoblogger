@@ -1,13 +1,14 @@
 <div>
     <app-list-posts
-        [posts]="posts"
+        [posts]="posts | async"
     ></app-list-posts>
     <div class="map-container">
         <app-map
-            *ngIf="currentPostReady"
-            [posts]="posts"
+            [posts]="posts | async"
             [currentPost]="getCurrentPost()"
         ></app-map>
     </div>
-    <div  *ngIf="currentPostReady" class="content" >{{postService.getCurrentPost().content}}</div>
+    <div  *ngIf="currentPostReady" class="content" >
+        {{getCurrentPost().content}}
+    </div>
 </div>

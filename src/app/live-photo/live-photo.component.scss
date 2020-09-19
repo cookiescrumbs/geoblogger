@@ -1,11 +1,8 @@
-div {
-    width: 400px; 
-    height: 300px;
-}
-
 @media (min-width: 600px) {
     div {
-        width: 645px; 
-        height: 484px
+        width: 645px;
+        height: 484px;
+        background-color: #fff;
+        z-index: 1;
     }
 }

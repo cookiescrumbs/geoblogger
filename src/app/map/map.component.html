@@ -1,13 +1,16 @@
 <google-map
-    height="500px"
-    width="750px"
+    height="484px"
+    width="645px"
     [center]="center"
-    [zoom]="zoom">
-    <map-marker 
-        *ngFor="let post of posts"
+    [zoom]="zoom"
+    [options]="options"
+    >
+    <map-marker
+        *ngFor="let post of posts; index as i"
         [position]="post.location"
-        [title]="post.content"
+        label="{{i+1}}"
         [options]="markerOptions"
     >
     </map-marker>
 </google-map>
+

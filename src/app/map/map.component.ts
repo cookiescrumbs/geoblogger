@@ -13,28 +13,28 @@ export class MapComponent implements OnInit, OnChanges {
     @Input() posts: Array<Post>;
     @Input() currentPost: Post;
 
+    public options: google.maps.MapOptions = {
+        mapTypeId: 'satellite',
+        zoomControl: true,
+        scrollwheel: false
+    };
+    public zoom = 18;
     public center: google.maps.LatLngLiteral;
     public markerOptions = {
         draggable: false
     };
-    public zoom = 13;
 
     public ngOnChanges() {
         this.center = this._setCentreToCurrentPost();
+        this.zoom = 25;
     }
 
     public ngOnInit() {
         this.center = this._setCentreToCurrentPost();
-        this.zoom = 15;
     }
 
     private _setCentreToCurrentPost(): LatLng {
         return this.currentPost.location;
-    }
-
-    private _medianPostLocation(): LatLng {
-        const median: number = Math.round((this.posts.length / 2));
-        return this.posts[median].location;
     }
 
 }

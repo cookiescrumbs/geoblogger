@@ -11,19 +11,9 @@ import { Post } from '../types';
 export class ListPostsComponent {
     @Input() posts: Array<Post>;
 
-    constructor(public postService: PostService ) { }
-    public isVideo(post: Post): boolean {
-        return post.media.type === 'video' ? true : false;
+    constructor(public postService: PostService ) {
+
+        postService.blah();
+
     }
-
-    public isImage(post: Post): boolean {
-        return post.media.type === 'image' ? true : false;
-    }
-
-    public isLivePhoto(post: Post): boolean {
-        return post.media.type === 'live-photo' ? true : false;
-    }
-
-
-
 }

@@ -12,8 +12,8 @@ import { Post } from './types';
 })
 export class AppComponent implements OnInit {
 
-    public posts: Observable<Post[]>;
-    public currentPost: Post;
+    public posts$: Observable<Post[]>;
+    public currentPost$: Observable<Post>;
     public currentPostReady = false;
 
     public ngOnInit() {
@@ -23,20 +23,13 @@ export class AppComponent implements OnInit {
     constructor(public postService: PostService) { }
 
     private _getPosts(): void {
-        this.posts = this.postService.getPosts()
+        this.posts$ = this.postService.getPosts()
         .pipe(
             tap(() => this.currentPostReady = true),
-            tap((posts) => {
-                this.postService.setCurrentPost(
-                    true,
-                    posts[0]
-                );
+            tap(() => {
+                this.currentPost$ = this.postService.getCurrentPost();
             })
         );
-    }
-
-    public getCurrentPost(): Post {
-        return this.postService.getCurrentPost();
     }
 
 }

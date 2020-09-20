@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../types';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
@@ -12,14 +12,21 @@ export class PostService {
 
     private _currentPost: Post;
     private _currentPostId: number;
+
+    private _currentPost$: BehaviorSubject<Post>;
     private postsUrl = 'api/posts';  // URL to web api
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
     public getPosts(): Observable<Post[]> {
         return this.http.get<Post[]>(this.postsUrl)
         .pipe(
-            map(posts => this._addPosition(posts) )
+            map(posts => this._addPosition(posts)),
+            tap((posts) => {
+                    this._currentPostId = posts[0].id;
+                    this._currentPost = posts[0];
+                    this._currentPost$ = new BehaviorSubject<Post>(this._currentPost);
+            })
         );
     }
 
@@ -27,11 +34,8 @@ export class PostService {
         if (inView && this._currentPostId !== post.id) {
             this._currentPostId = post.id;
             this._currentPost = post;
+            this._currentPost$.next(this._currentPost);
         }
-    }
-
-    public getCurrentPost(): Post {
-        return this._currentPost;
     }
 
     private _addPosition(posts: Post[]): Post[] {
@@ -41,5 +45,9 @@ export class PostService {
                 position: ++index
             };
         });
+    }
+
+    public getCurrentPost(): Observable<Post> {
+        return this._currentPost$.asObservable();
     }
 }

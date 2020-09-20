@@ -4,12 +4,13 @@
     ></app-list-posts>
     <div class="map-container">
         <app-map
+            *ngIf="currentPost$ | async"
             [posts]="posts$ | async"
             [currentPost]="currentPost$ | async"
         ></app-map>
     </div>
-    <div class="content" >
-        <h1>{{(currentPost$ | async).position}}</h1>
+    <div *ngIf="currentPost$ | async" class="content" >
+        <h3>{{(currentPost$ | async).position}}</h3>
         <h3>{{(currentPost$ | async).content}}</h3>
     </div>
 </div>

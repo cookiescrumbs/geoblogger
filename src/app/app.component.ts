@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
 
     public posts$: Observable<Post[]>;
     public currentPost$: Observable<Post>;
-    public currentPostReady = false;
 
     public ngOnInit() {
         this._getPosts();
@@ -25,7 +24,6 @@ export class AppComponent implements OnInit {
     private _getPosts(): void {
         this.posts$ = this.postService.getPosts()
         .pipe(
-            tap(() => this.currentPostReady = true),
             tap(() => {
                 this.currentPost$ = this.postService.getCurrentPost();
             })

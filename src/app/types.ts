@@ -17,6 +17,6 @@ export interface Post {
     dateTime: string;
     timeStamp: number;
     content: string;
-    icon?: string;
     position?: number;
+    markerOptions?: any;
 }

@@ -4,7 +4,6 @@
     ></app-list-posts>
     <div class="map-container">
         <app-map
-            *ngIf="currentPost$ | async"
             [posts]="posts$ | async"
             [currentPost]="currentPost$ | async"
         ></app-map>

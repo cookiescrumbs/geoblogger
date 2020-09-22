@@ -21,7 +21,7 @@ export class PostService {
     public getPosts(): Observable<Post[]> {
         return this.http.get<Post[]>(this.postsUrl)
         .pipe(
-            map(posts => this._addPosition(posts)),
+            map(posts => this._addMarker(posts)),
             tap((posts) => {
                     this._currentPostId = posts[0].id;
                     this._currentPost = posts[0];
@@ -30,7 +30,7 @@ export class PostService {
         );
     }
 
-    public setCurrentPost(inView: boolean, post: Post): void{
+    public setCurrentPost(inView: boolean, post: Post): void {
         if (inView && this._currentPostId !== post.id) {
             this._currentPostId = post.id;
             this._currentPost = post;
@@ -38,11 +38,17 @@ export class PostService {
         }
     }
 
-    private _addPosition(posts: Post[]): Post[] {
+    private _addMarker(posts: Post[]): Post[] {
         return posts.map((post: Post , index: number) => {
             return {
                 ...post,
-                position: ++index
+                position: index + 1,
+                markerOptions: {
+                    draggable: false,
+                    icon: {
+                        url: `https://chart.googleapis.com/chart?chst=d_map_spin&chld=1|0|fed136|13|_|${index + 1}`
+                    }
+                }
             };
         });
     }

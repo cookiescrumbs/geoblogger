@@ -1,6 +1,6 @@
 import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
 
-import { Post, LatLng } from '../types';
+import { Post, LatLng, Marker } from '../types';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Post, LatLng } from '../types';
 })
 export class MapComponent implements OnChanges {
 
-    @Input() posts: Array<Post>;
+    @Input() markers: Array<Marker>;
     @Input() currentPost: Post;
 
     public options: google.maps.MapOptions = {
@@ -22,15 +22,11 @@ export class MapComponent implements OnChanges {
     public center: google.maps.LatLngLiteral;
 
     public ngOnChanges(changes: SimpleChanges): void {
-        if (changes.posts && this.posts) {
-            console.log('Posts ngOnChanges', this.posts);
-        }
+        console.log('ngOnChanges marker', this.markers);
         if (changes.currentPost && this.currentPost) {
             this.center = this._setCentreToCurrentPost();
-         }
-
+        }
     }
-
 
 
     private _setCentreToCurrentPost(): LatLng {

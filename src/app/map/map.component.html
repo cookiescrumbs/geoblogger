@@ -6,9 +6,9 @@
     [options]="options"
     >
     <map-marker
-        *ngFor="let post of posts"
-        [position]="post.location"
-        [options]="post.markerOptions"
+        *ngFor="let marker of markers"
+        [position]="marker.location"
+        [options]="marker.markerOptions"
     >
     </map-marker>
 </google-map>

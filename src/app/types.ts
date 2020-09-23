@@ -20,3 +20,9 @@ export interface Post {
     position?: number;
     markerOptions?: any;
 }
+
+export interface Marker {
+    id: number;
+    location: LatLng;
+    markerOptions: any;
+}
